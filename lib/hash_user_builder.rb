@@ -5,7 +5,7 @@ module DojoRest
 
     def create_user_from_hash(hash)
       dto = RecursiveOpenStruct.new(hash)
-      User.new(dto)
+      User.new(dto.user)
     end
   end
 end

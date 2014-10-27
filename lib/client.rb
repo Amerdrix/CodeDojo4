@@ -1,5 +1,6 @@
 require_relative 'errors/not_found'
 require 'net/http'
+require 'json'
 
 module DojoRest
   class Client
@@ -14,7 +15,7 @@ module DojoRest
 
       raise NotFoundException.new if result.code == '404'
 
-      return User.new
+      JSON.load(result.body)["results"][0]
     end
 
     private

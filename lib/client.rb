@@ -17,9 +17,7 @@ module DojoRest
       raise NotFoundException.new if result.code == '404'
 
       builder = HashUserBuilder.new
-      user = builder.create_user_from_hash(JSON.load(result.body)["results"][0])
-
-      user
+      builder.create_user_from_hash(JSON.load(result.body)["results"][0])
     end
 
     def get_users(count)

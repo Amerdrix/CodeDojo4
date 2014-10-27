@@ -19,10 +19,11 @@ module DojoRest
       builder = HashUserBuilder.new
       user = builder.create_user_from_hash(JSON.load(result.body)["results"][0])
 
-      puts user.name
       user
+    end
 
-
+    def get_users(count)
+      count.times.map { get_user }
     end
 
     private

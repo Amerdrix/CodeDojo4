@@ -1,4 +1,5 @@
 require_relative 'errors/not_found'
+require_relative 'hash_user_builder'
 require 'net/http'
 require 'json'
 
@@ -15,7 +16,8 @@ module DojoRest
 
       raise NotFoundException.new if result.code == '404'
 
-      JSON.load(result.body)["results"][0]
+      builder = HashUserBuilder.new
+      builder.create_user_from_hash(JSON.load(result.body)["results"][0])
     end
 
     private

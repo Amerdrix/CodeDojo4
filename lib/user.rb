@@ -21,7 +21,12 @@ module DojoRest
       self.phone = dto.phone
       self.cell = dto.cell
       self.SSN = dto.SSN
-      self.picture  = dto.picture
+      self.picture = dto.picture
     end
+
+    private
+
+    attr_writer :name, :gender, :location, :email, :username, :password,
+                :salt, :md5, :sha1, :sha256, :registered, :dob, :phone, :cell, :SSN, :picture
   end
 end

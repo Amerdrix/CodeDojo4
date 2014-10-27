@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^spec/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "recursive-open-struct"
   spec.add_development_dependency "rspec", '~> 2.0'
   spec.add_development_dependency "capybara"
 end

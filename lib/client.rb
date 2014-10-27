@@ -17,16 +17,11 @@ module DojoRest
       raise NotFoundException.new if result.code == '404'
 
       builder = HashUserBuilder.new
-      user = builder.create_user_from_hash(JSON.load(result.body)["results"][0])
-
-      puts user.name
-      user
-
-
+      builder.create_user_from_hash(JSON.load(result.body)["results"][0])
     end
 
     private
 
     attr_accessor :url
-  end
+  end                                                       |
 end
